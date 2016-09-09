@@ -1,0 +1,30 @@
+LISTA DE ESTADOS:
+holding(B1)
+empty
+ontable(B1)
+clear(B1)
+on(B1,B2)
+
+LISTA DE STRIPS:
+//Nombre Operador: Lista Precondiciones: Lista Adiciones: Lista Borrados
+pickuptable(B1): ontable(B1); clear(B1); empty: holding(B1): empty; ontable(B1); clear(B1)
+pickup(B1,B2): on(B1,B2); clear(B1); empty: holding(B1); clear(B2): empty; on(B1,B2); clear(B1)
+putdowntable(B1): holding(B1): empty; ontable(B1); clear(B1): holding(B1)
+putdown(B1,B2): clear(B2); holding(B1): empty; on(B1,B2); clear(B1): clear(B2); holding(B1)
+
+MUNDO ACTUAL:
+empty
+ontable(b2)
+clear(b1)
+on(b1,b2)
+ontable(b3)
+clear(b3)
+
+
+
+MUNDO FINAL:
+empty
+ontable(b2)
+on(b1,b2)
+on(b3,b1)
+clear(b3)
